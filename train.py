@@ -12,6 +12,15 @@ learning_rate = 3e-4
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 eval_iters = 200
 
+# uncomment for tinyshakespeare
+# batch_size = 64 
+# block_size = 256
+# max_iters = 5000
+# eval_interval = 500
+# learning_rate = 3e-4
+# device = 'cuda' if torch.cuda.is_available() else 'cpu'
+# eval_iters = 200
+
 # Load data
 with open('data/names.txt', 'r', encoding='utf-8') as f:
     text = f.read()
@@ -27,6 +36,7 @@ val_data = data[n:]
 model = GPT(vocab_size=vocab_size).to(device)
 optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)
 writer = SummaryWriter(log_dir="runs/gpt_stats")
+# writer = SummaryWriter(log_dir="runs/tinyshake_stats")
 
 @torch.no_grad()
 def estimate_loss():

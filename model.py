@@ -9,6 +9,13 @@ n_head = 6
 n_layer = 6
 dropout = 0.2
 
+# uncomment for tinyshakespeare
+# block_size = 256
+# n_embd = 384
+# n_head = 6
+# n_layer = 6
+# dropout = 0.2
+
 class Head(nn.Module):
     def __init__(self, head_size):
         super().__init__()
